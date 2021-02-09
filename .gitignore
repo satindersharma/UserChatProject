@@ -13,11 +13,12 @@ static_cdn
 # ProjectDjangoAdmin/__pycache__
 users/__pycache__
 users/migrations
+users/test/
 sent_emails/
 media/
 media/**
 locale/**
-
+db.sqlite3
 # Not Ready for Production
 # marketing/
 

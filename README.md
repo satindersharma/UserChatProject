@@ -20,3 +20,4 @@ on linux
 ### run migrate to create the tables
 `python manage.py migrate`
 
+### move 'user-profile.png' to media directory

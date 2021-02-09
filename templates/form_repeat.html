@@ -1,0 +1,11 @@
+<div class="form-group col-md-{{col_md|default:"4"}} {{mr_lg_auto}} {{exclass}} ">
+    <label for="{{f.id_for_label}}" class="col-sm-{{lcol|default:"6"}} {{lclass}} col-form-label font-weight-bold dark-theme-text">{{f_label}}</label>
+    <div class="col-sm-12">
+        {{f}}
+    </div>
+    {% if f.errors %} {% for ee in f.errors %}
+    <span class="error-text text-center">
+        {{ ee }}
+    </span>
+    {% endfor %} {% endif %}
+</div>

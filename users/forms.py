@@ -12,7 +12,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 # from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import gettext_lazy as _
-from users.models import UserProfile
+from users.models import UserProfile, ChatGroup, ChatMessage
 # from django.conf import settings
 # USER = settings.AUTH_USER_MODEL
 '''
@@ -72,6 +72,19 @@ class CustomUserCreationForm(UserCreationForm):
     #                                               widget=forms.RadioSelect,
     #
     #
+    name = forms.CharField(
+        label='',
+        # max_length=30,
+        # min_length=2,
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Name",
+                "class": "form-control"
+            }
+        )
+    )
+
     username = forms.CharField(
         label='',
         # max_length=30,
@@ -126,7 +139,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ('username', 'email', 'password1', 'password2',)
+        fields = ('name','username', 'email', 'password1', 'password2',)
 
 
 class CustomUserChangeForm(UserChangeForm):
@@ -194,3 +207,29 @@ class UserProfileForm(forms.ModelForm):
         fields = '__all__'
         exclude = ('user',)
 
+
+class ChatGroupForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ChatGroupForm, self).__init__(*args, **kwargs)
+        for name in self.fields.keys():
+            self.fields[name].widget.attrs.update({'class': 'form-control'})
+
+    prefix = 'chat-group'
+
+    # user = forms.ModelChoiceField(queryset=get_user_model().objects.all(),empty_label="Select User")
+
+    class Meta:
+        model = ChatGroup
+        fields = '__all__'
+        exclude = ('user',)
+
+
+class ChatMessageForm(forms.ModelForm):
+    prefix = 'message'
+    message = forms.CharField(required=True, widget=forms.Textarea(
+        attrs={'class': 'form-control form-control-sm  small-size-input', "rows": "1"}))
+
+    class Meta:
+
+        model = ChatMessage
+        fields = ('message', 'user', 'content_type', 'object_id',)

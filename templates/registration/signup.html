@@ -29,7 +29,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 mt-3 ">
                                                         <span>
-                                                            <a role="button" class="btn btn-success" href="{% url 'erpapp:home' %}">Home</a>
+                                                            <a role="button" class="btn btn-success" href="{% url 'users:home' %}">Home</a>
                                                         </span>
                                                         <span>
                                                             <a role="button" class="btn btn-danger" href="{% url 'users:logout' %}">Log out</a>
@@ -45,6 +45,19 @@
                                     {% csrf_token %}
 
                                         <h4 class="text-primary my-4">Register !</h4>
+                                        <div class="form-group">
+                                            {{form.name}}
+                                        </div>
+
+                                        {% if form.name.errors %}
+                                        <div class="col-sm-12 mt-n3 mb-1">
+                                            {% for ee in form.name.errors %}
+                                                    <span class="error-text text-center">
+                                                        {{ ee }}
+                                                    </span>
+                                            {% endfor %}
+                                            </div>
+                                        {% endif %}
                                         <div class="form-group">
                                             {{form.username}}
                                         </div>

@@ -1,0 +1,24 @@
+{% load static %}
+<form  method="post" accept-charset="utf-8"  class="col"
+    action="{% if chat_group_object %}{{chat_group_object.get_update_url}}{% else %}{% url 'users:chat-group-add' %}{% endif %}"
+    autocomplete="off">
+    <div class="card details-card bgc-none">
+        <h2 class="card-header header-bgc header-box-shadow py-0">Add New Group</h2>
+
+        <div class="card-body py-0 ">
+            {% csrf_token %}
+            <div class="form-row">
+                {% include 'form_repeat.html' with f=chat_group_form.name f_label="Name" col_md="6" %}
+                <div class="form-group col-md-1">
+                    <label for="" class="col-sm-12  col-form-label font-weight-bold text-nowrap dark-theme-text">Save</label>
+                    <button type="submit" class="btn btn-outline-primary">Save</button>
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="" class="col-sm-12  col-form-label font-weight-bold text-nowrap dark-theme-text">Reset</label>
+                    <button type="reset" class="btn btn-outline-dark">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

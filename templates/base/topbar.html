@@ -12,6 +12,15 @@
                 Home
               </a>
             </div>
+            <div class="menubar mx-3 d-inline">
+              <a class="menu-hamburger" href="{% url 'users:chat-group-add' %}">
+                Add Group
+              </a>
+            </div>            <div class="menubar mx-3 d-inline">
+              <a class="menu-hamburger" href="{% url 'users:group-list' %}">
+                All Group
+              </a>
+            </div>
       <div class="infobar">
         <ul class="list-inline mb-0">
           
@@ -44,9 +53,9 @@
                   aria-expanded="false"
                 >
                   <img
-                    src="{% if user.userprofile.image %}{{user.userprofile.image.url}}{% else %}{% static 'img/profile.png' %}{% endif %}"
+                    src="{% if user.userprofile.image %}{{user.userprofile.image.url}}{% endif %}"
                     class="profile-pic-icon"
-                    alt="profile"
+                    alt=""
                   />
                   <span class="live-icon dark-icon-color dark-theme-border"
                     >{% if user.is_authenticated %}

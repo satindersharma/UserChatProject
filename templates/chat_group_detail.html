@@ -1,0 +1,61 @@
+{% load static %}
+
+<!-- Start col -->
+<div class="col-sm-5 col-xl-4">
+    <div class="chat-list  h-100 card-bg-color">
+        <!-- <div class="chat-search">
+            <form>
+                <div class="input-group">
+                    <input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                        aria-describedby="button-addon3">
+                    <div class="input-group-append">
+                        <button class="btn" type="submit" id="button-addon3"><i class="ri-search-2-line"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div> -->
+        <div class="chat-user-list">
+            <ul class="list-unstyled mb-0" >
+                {% for t in chat_group_object_list %}
+                {% url 'users:chat-group-update' pk=t.pk  as group_path %}
+                <a href="{{t.get_update_url}}"  >
+                <li class="media dark-theme-text {% if group_path == request.path  %}{% if forloop.first or forloop.last %}{% else %}rounded-0{% endif %} chat-active{% endif %}">
+                    <img class="align-self-center rounded-circle chat-profile-img-sm" src="{{t.user_avatar_url}}"
+                    alt="">
+                    <div class="media-body">
+                        <h5>{{t.name|truncatewords:4 }}<span class="timing text-dark">{{t.created_at|date:"D d M y"}}</span>
+                        </h5>
+                    </div>
+                </li>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End col -->
+{% if chat_group_object %}
+<!-- Start col -->
+<div class="col-sm-7 col-xl-8">
+    <div class="chat-detail h-100 card-bg-color-lighter">
+        <div class="chat-head">
+            <ul class="list-unstyled mb-0">
+                <li class="media">
+                    <img class="align-self-center mr-3 rounded-circle chat-profile-img" src="{{chat_group_object.user_avatar_url}}"
+                        alt="">
+                    <div class="media-body">
+                        <h5 class="font-24  dark-theme-text">{{chat_group_object.name}}</h5>
+                        <!-- <p class="mb-0  dark-theme-text">Assigned to: {{chat_group_object.user.name}} </p> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="chat-body ">
+            {% include 'chat_message.html' with chat_message_form=chat_message_form form_action_url=chat_group_object.get_update_url chat_messages=chat_group_object.messages themeclass="dark-theme-text" %}
+        </div>
+        
+    </div>
+</div>
+<!-- End col -->
+{% endif %}

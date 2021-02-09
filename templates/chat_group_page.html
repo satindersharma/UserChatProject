@@ -1,0 +1,47 @@
+{% extends "home.html" %} {% load static %}
+{% block title %}Create New Chat Group{% endblock title %}
+{% block breadcrumbbar %}
+
+<!-- Start Breadcrumbbar -->
+
+<div class="breadcrumbbar bg-transparent">
+  {% comment %} <div class="row align-items-center">
+    <div class="col-md-auto col-lg-auto">
+      <div class="media">
+        <span class="breadcrumb-icon"><i class="ri-menu-add-line"></i></span>
+        <div class="media-body ">
+          <h3 class="page-title mt-2">BOMS</h3>
+        </div>
+      </div>
+    </div>
+  </div> {% endcomment %}
+</div>
+
+<!-- End Breadcrumbbar -->
+
+{% endblock breadcrumbbar %}
+
+
+{% block content %}
+
+<div class="contentbar dark-outer-color-theme pt-5">
+  <div class="row justify-content-center dark-outer-color-theme">
+    {% if chat_group_form %}
+    {% include 'chat_group_form.html' %}
+    
+    {% else %}
+ 
+
+    <div class="w-100"></div>
+
+
+    <!-- start chat  bom -->
+    {% include 'chat_group_detail.html' %}
+    <!-- end chat  bom-->
+
+{% endif %}
+
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% load static %}
+{% load humanize %}
+{% load tz %}
+<div class="dropdown">
+    <a class="dropdown-toggle infobar-icon" href="#" role="button"
+        id="notoficationlink" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false"><i class="ri-notification-line dark-icon-color"></i>
+
+        {% if notify_total_count %}<span class="live-icon notify "
+            {% if notify_total_count > 9 %}
+            style="font-size:xx-small;padding:0 0 0 2px" {% endif %}>
+            {{notify_total_count}} </span>{% endif %}</a>
+
+    {% if notify_total_count %}
+    <div class="dropdown-menu dropdown-menu-right"
+        aria-labelledby="notoficationlink">
+        <div class="notification-dropdown-title">
+            <h5>Notification<a href="#">Close</a></h5>
+        </div>
+
+        {% include 'base/all_notification.html' %}
+
+    </div>
+    {% else %}
+    <div class="dropdown-menu dropdown-menu-right"
+        aria-labelledby="notoficationlink">
+        <div class="notification-dropdown-title">
+            <h5>No New Notification</h5>
+        </div>
+        <div class="notification-dropdown-footer pt-0">
+            <h5><a href="#">Close</a></h5>
+        </div>
+    </div>
+    {% endif %}
+
+
+</div>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}500 Internal Server Error{% endblock title %}
+{% block indexhtml %}
+
+
+    <!-- Start Containerbar -->
+    <div id="containerbar" class="containerbar authenticate-bg text-dark">
+                <!-- Start Container -->
+        <div class="container">
+            <div class="auth-box error-box">
+                <!-- Start row -->
+                 <div class="row no-gutters align-items-center justify-content-center">
+                    <!-- Start col -->
+                    <div class="col-md-8 col-lg-6">
+                        <div class="text-center">
+                            <img src="{% static 'assets/images/celec-energy-saving-logo.png' %}" class="img-fluid error-logo" alt="logo">
+                            <img src="{% static 'assets/images/error/internal-server.svg' %}" class="img-fluid error-image" alt="500">
+                             <h4 class="error-subtitle mb-4 error-page-color">500 Internal Server Error</h4>
+                            <p class="mb-4  error-page-color">The server encountered an internal error or misconfiguration and was unable to complete your request.</p>
+                            <a href=" {% url 'erpapp:home' %}" class="btn btn-primary font-16"><i class="ri-home-5-line mr-2"></i> Go back to Dashboard</a>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                </div>
+                <!-- End row -->
+            </div>
+        </div>
+        <!-- End Container -->
+    </div>
+    <!-- End Containerbar -->
+
+
+
+
+
+
+
+
+{% endblock indexhtml %}

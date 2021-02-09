@@ -1,0 +1,243 @@
+{% extends "home.html" %} {% load static %} {% block title %} My Profile {% endblock title %}
+ {% block breadcrumbbar %}
+
+<!-- Start Breadcrumbbar -->
+<div class="breadcrumbbar bg-transparent">
+  <div class="row align-items-center">
+    <div class="col-md-8 col-lg-8">
+      <h4 class="page-title">My Account</h4>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumbbar -->
+{% endblock breadcrumbbar %} 
+{% block content %}
+<!-- Start Contentbar -->
+<div class="contentbar dark-outer-color-theme px-2">
+  <!-- Start row -->
+  <div class="row justify-content-center dark-outer-color-theme">
+    <!-- Start col -->
+    <div class="col-lg-5 col-xl-3">
+      <div class="card h-100 card-bg-color">
+        <div class="card-header">
+          <h5 class="card-title mb-0">My Account</h5>
+        </div>
+        <div class="card-body">
+          <div
+            class="nav flex-column nav-pills"
+            id="v-pills-tab"
+            role="tablist"
+            aria-orientation="vertical"
+          >
+            <a
+              class="nav-link mb-2 active"
+              id="v-pills-dashboard-tab"
+              data-toggle="pill"
+              href="#v-pills-dashboard"
+              role="tab"
+              aria-controls="v-pills-dashboard"
+              aria-selected="true"
+              ><i class="ri-dashboard-line mr-2"></i>Dashboard</a
+            >
+            <a
+              class="nav-link mb-2"
+              id="v-pills-notifications-tab"
+              data-toggle="pill"
+              href="#v-pills-notifications"
+              role="tab"
+              aria-controls="v-pills-notifications"
+              aria-selected="false"
+              ><i class="ri-notification-line mr-2"></i>Notifications</a
+            >
+            <a
+              class="nav-link mb-2"
+              id="v-pills-profile-tab"
+              data-toggle="pill"
+              href="#v-pills-profile"
+              role="tab"
+              aria-controls="v-pills-profile"
+              aria-selected="false"
+              ><i class="ri-user-settings-line mr-2"></i>My Profile</a
+            >
+            <a
+              class="nav-link"
+              id="v-pills-logout-tab"
+              data-toggle="pill"
+              href="#v-pills-logout"
+              role="tab"
+              aria-controls="v-pills-logout"
+              aria-selected="false"
+              ><i class="ri-shut-down-line mr-2"></i>Logout</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End col -->
+    <!-- Start col -->
+    <div class="col-lg-7 col-xl-9">
+      <div class="tab-content" id="v-pills-tabContent">
+        <!-- Dashboard Start -->
+        <div
+          class="tab-pane fade show active"
+          id="v-pills-dashboard"
+          role="tabpanel"
+          aria-labelledby="v-pills-dashboard-tab"
+        >
+          <div class="card h-100 card-bg-color">
+            <div class="card-header">
+              <h5 class="card-title mb-0">Dashboard</h5>
+            </div>
+            <div class="card-body">
+              <div class="text-center">
+                <img
+                  src="{% if user.userprofile.image %}{{user.userprofile.image.url}}{% else %}{% static 'img/profile.png' %}{% endif %}"
+                  class="profile-pic mb-3"
+                  alt="profile"
+                />
+                <div class="profilename">
+                  <h5>
+                    {% if user.is_authenticated %}
+                    {{user.name|default_if_none:user.username}} {% endif %}
+                  </h5>
+                  <p class="text-muted my-3">
+                    <button class="btn btn-link" type="button" id="edit-my-profile"
+                      ><i class="ri-pencil-line mr-2"></i>Edit Profile</button
+                    >
+                  </p>
+                </div>
+                <div class="button-list">
+                  <a href="" class="btn btn-primary rounded-circle font-18"
+                    ><i class="ri-facebook-line"></i
+                  ></a>
+                  <a href="" class="btn btn-info rounded-circle font-18"
+                    ><i class="ri-twitter-line"></i
+                  ></a>
+                  <a href="" class="btn btn-danger rounded-circle font-18"
+                    ><i class="ri-instagram-line"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Dashboard End -->
+
+        <!-- My Notifications Start -->
+        <div
+          class="tab-pane fade"
+          id="v-pills-notifications"
+          role="tabpanel"
+          aria-labelledby="v-pills-notifications-tab"
+        >
+          <div class="card h-100 card-bg-color">
+            <div class="card-header">
+              <h5 class="card-title mb-0">Notifications</h5>
+            </div>
+            <div class="card-body">
+              <div class="ecom-notification-box">
+                {% include 'base/all_notification.html' with text_center="text-center" %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- My Notifications End -->
+        <!-- My Profile Start -->
+        <div
+          class="tab-pane fade"
+          id="v-pills-profile"
+          role="tabpanel"
+          aria-labelledby="v-pills-profile-tab"
+        >
+          <div class="card h-100 card-bg-color">
+            <div class="card-header">
+              <h5 class="card-title mb-0">Edit Profile Informations</h5>
+            </div>
+            <div class="card-body">
+            <form id="profile-edit-form" method="post" enctype="multipart/form-data" action="{% url 'users:user-profile' %}">
+              <div class="pb-4 text-center">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <label for="{{user_profile_form.image.id_for_label}}">
+                      <a
+                        role="button"
+                        class="btn btn-link btn-success-rgba font-18"
+                      >
+                        <i class="ri-edit-circle-line"></i
+                      ></a>
+                    </label>
+                    <div class="d-none">{{user_profile_form.image}}</div>
+                  </li>
+                  <li class="list-inline-item">
+                    <img
+                      src="{% if user.userprofile.image %}{{user.userprofile.image.url}}{% else %}{% static 'img/profile.png' %}{% endif %}"
+                      class="profile-pic"
+                      alt="profile"
+                    />
+                  </li>
+                  <li class="list-inline-item">
+                    <a role="button" id="profile-image-delete" class="btn btn-danger-rgba font-18 {% if not user.userprofile.image %}disabled{% endif %}"
+                      data-defaultimage="{% static 'img/profile.png' %}"><i class="ri-delete-bin-3-line"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+              </form>
+          </div>
+        </div>
+        <!-- My Profile End -->
+        <!-- My Logout Start -->
+        <div
+          class="tab-pane fade"
+          id="v-pills-logout"
+          role="tabpanel"
+          aria-labelledby="v-pills-logout-tab"
+        >
+          <div class="card h-100 card-bg-color">
+            <div class="card-header">
+              <h5 class="card-title mb-0">Logout</h5>
+            </div>
+            <div class="card-body">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 col-xl-4">
+                  <div class="logout-content text-center">
+                    <img
+                      src="{% static 'assets/images/ecommerce/logout.svg' %}"
+                      class="img-fluid mb-5"
+                      alt="logout"
+                    />
+                    <h2 class="text-success">Logout ?</h2>
+                    <p class="my-4 text-dark">
+                      Are you sure to want to Log out?
+                    </p>
+                    <div class="button-list">
+                      <a
+                        role="button"
+                        href="{% url 'users:logout' %}"
+                        class="btn btn-danger font-16"
+                        ><i class="ri-check-line mr-2"></i>Yes, I'm sure</a
+                      >
+                      <a
+                        role="button"
+                        href="{% url 'users:home' %}"
+                        class="btn btn-success font-16"
+                        ><i class="ri-close-line mr-2"></i>Cancel</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- My Logout End -->
+      </div>
+    </div>
+    <!-- End col -->
+  </div>
+  <!-- End row -->
+</div>
+<!-- End Contentbar -->
+
+{% endblock content %} {% block javascript %} {% endblock javascript %}

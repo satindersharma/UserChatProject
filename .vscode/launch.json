@@ -1,0 +1,73 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {"name":"Python: Current File","type":"python","request":"launch","program":"${file}","console":"integratedTerminal"},
+    {
+      "name": "Launch Chrome",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "http://192.168.0.240:8000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch SSL Chrome",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "https://192.168.0.240:8080",
+      "webRoot": "${workspaceFolder}"
+    },
+      {
+        "name": "Debug Django",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}\\manage.py",
+        "args": ["runserver", "0.0.0.0:8000", "--noreload"],
+        "django": true
+      },
+      {
+        "name": "Debug SSL Django",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}\\manage.py",
+        "args": ["runsslserver", "0.0.0.0:8080", "--noreload"],
+        "django": true
+      },
+      {
+        "name": "RunServer",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}\\manage.py",
+        "args": ["runserver"],
+  
+        "django": true
+      },
+      {
+        "name": "makemigrations",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}\\manage.py",
+        "args": ["${input:variableID}", "${input:appname}"],
+  
+        "django": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": "variableID",
+        "type": "pickString",
+        "description": "migration or migrate?",
+        "options": ["makemigrations", "migrate"],
+        "default": "makemigrations"
+      },
+      {
+        "id": "appname",
+        "type": "promptString",
+        "description": "enter app name",
+        "default": "--noinput",
+        "password": false
+      }
+    ]
+  }

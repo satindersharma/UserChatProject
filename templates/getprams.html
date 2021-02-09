@@ -1,0 +1,16 @@
+
+{% block getprams %}
+{% if page and fp %}?page={{page}}
+{% for p,v in request.GET.items %}
+{% if p != 'page' and v != "" %}&{{p}}={{v}}{% endif %}
+{% endfor %}
+{% elif fp %}{% if request.GET %}?{% endif %}
+{% for p,v in request.GET.items %}
+{% if p != 'page' and v != "" %}{% if not forloop.first %}&{% endif %}{{p}}={{v}}{% endif %}
+{% endfor %}
+{% else %}{% if request.GET %}?{% endif %}
+{% for p,v in request.GET.items %}
+{% if v != "" %}{% if not forloop.first %}&{% endif %}{{p}}={{v}}{% endif %}
+{% endfor %}
+{% endif %}
+{% endblock getprams %}

@@ -1,0 +1,38 @@
+:root{
+	--form-control-color: #000;
+	--form-control-bg-color: #f6e1e1;
+	--form-control-f-color: #000;
+	--form-control-f-bg-color: #f6e1e1;
+	--dark-theme-header-bg-color: #262729;
+	--dark-theme-bg-color: #393b44;
+	--dark-theme-border-color: #222831;
+	--dark-color-theme-bg-color: #e7e7de;
+	--dark-theme-leftbar-bg-color:#111;
+	--dark-theme-outer-bg-color: #e7e7de;
+	--dark-theme-top-bg-color: #ecfeff;
+	--dark-theme-color: #fff1e6;
+	--topbar-border: 1px solid rgb(255, 255, 255);
+	--dark-search-button-color: rgba(255, 255, 255, 0.904);
+	--dark-input-placeholder-color: rgba(83, 82, 82, 0.5);
+	--dark-color-color:#fff;
+	--page-title-color:#333;
+	--dark-text-color: #ffffff;
+	--dark-icon-color: rgb(31, 31, 31);
+	--chart-bgc: #fff;
+	--dark-theme-form-bg-color: #f6e1e1;
+	--table-tr-even-color: #222831;
+	--table-tr-even-bg-color: #222831;
+	--table-tr-odd-color: #000;
+	--table-tr-odd-bg-color: #000;
+	--table-td-color: #128494;
+	--table-tr-even-td-color: #fbf7f0;
+	--table-thead-color:#fff1e6;
+	--table-thead-bg-color:#3c415e;
+	--outer-c: #f7f4f2;
+	--outer-bgc: #e6e2de;
+	--header-c: #fff1e6;
+	--header-bgc: #b1b1b1;
+	--text-c: rgb(0, 0, 0);
+	--text-bgc: #f6e1e1;
+
+}

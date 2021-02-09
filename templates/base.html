@@ -1,0 +1,114 @@
+{% load static %}
+{% load tz %}
+{% load l10n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description"
+    content="Django Base User Chat Project" />
+  <meta name="keywords" content="user, chat, django" />
+  <meta name="author" content="celec" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimal-ui" />
+  {% comment %}
+  <meta http-equiv="refresh" content="3"> {% endcomment %}
+  <title>{% block title %} Django Chat{% endblock title %} </title>
+  <!-- Fevicon -->
+  <!-- Favicons -->
+  <link rel="icon" href="{% static 'img/favicon.ico' %}" sizes="32x32" />
+
+  <link rel="icon" href="{% static 'assets/images/cropped-favicon-32x32.png' %}" sizes="32x32" />
+  <link rel="icon" href="{% static 'assets/images/cropped-favicon-192x192.png' %}" sizes="192x192" />
+  <link rel="apple-touch-icon-precomposed" href="{% static 'assets/images/cropped-favicon-180x180.png' %}" />
+{% block base_css %}
+
+  {% include "base/css.html" %}
+{% endblock base_css %}
+  
+  <style>
+    .LoaderBalls {
+      width: 90px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      z-index: 99999;
+      left: 50%;
+      top: 30%;
+      transform: translate(-50%, -50%);
+    }
+
+    .LoaderBalls__item {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #0094ca;
+
+    }
+
+    .LoaderBalls__item:nth-child(1) {
+      animation: bouncing 0.4s alternate infinite cubic-bezier(0.6, 0.05, 0.15, 0.95);
+    }
+
+    .LoaderBalls__item:nth-child(2) {
+      animation: bouncing 0.4s 0.1s alternate infinite cubic-bezier(0.6, 0.05, 0.15, 0.95) backwards;
+    }
+
+    .LoaderBalls__item:nth-child(3) {
+      animation: bouncing 0.4s 0.2s alternate infinite cubic-bezier(0.6, 0.05, 0.15, 0.95) backwards;
+    }
+
+    @keyframes bouncing {
+      0% {
+        transform: translate3d(0, 10px, 0) scale(1.2, 0.85);
+      }
+
+      100% {
+        transform: translate3d(0, -20px, 0) scale(0.9, 1.1);
+      }
+    }
+  </style>
+  <script>
+    document.onreadystatechange = function () {
+      if (document.readyState !== "complete") {
+        document.querySelector("body").style.visibility = "hidden";
+        document.querySelector(".LoaderBalls").style.visibility = "visible";
+      } else {
+        document.querySelector(".LoaderBalls").style.display = "none";
+        document.querySelector("body").style.visibility = "visible";
+      }
+    };  
+  </script>
+  <noscript>
+
+    <style>
+      /* noscript detects if javascript is disabled
+		   if JavaScript not present, don't show loader */
+
+      .LoaderBalls {
+        display: none;
+      }
+    </style>
+
+  </noscript>
+</head>
+
+<body class="vertical-layout dark-outer-color-theme">
+  <div class="LoaderBalls">
+    <!-- https://codepen.io/Sixclones/pen/VBdeXL -->
+    <div class="LoaderBalls__item"></div>
+    <div class="LoaderBalls__item"></div>
+    <div class="LoaderBalls__item"></div>
+  </div>
+  {% block indexhtml %} {% endblock indexhtml %}
+
+  {% include "base/js.html" %}
+  {% block javascript%}
+  {% endblock javascript%}
+
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+{% load static %} {% load humanize %}
+
+
+<!-- Start Topbar -->
+<div class="topbar w-100 dark-top-color-theme">
+  <!-- Start row -->
+  <div class="row align-items-center">
+    <!-- Start col -->
+    <div class="col-md-12 align-self-center">
+            <div class="menubar d-inline">
+              <a class="menu-hamburger" href="{% url 'users:home' %}">
+                Home
+              </a>
+            </div>
+      <div class="infobar">
+        <ul class="list-inline mb-0">
+          
+          <li class="list-inline-item">
+            <div class="settingbar">
+              <a
+                href="javascript:void(0)"
+                id="infobar-settings-open"
+                class="infobar-icon"
+                ><i class="ri-settings-line dark-icon-color"></i
+              ></a>
+            </div>
+          </li>
+
+          <li class="list-inline-item">
+            <div class="notifybar">{% include 'base/notification.html' %}</div>
+          </li>
+
+          {
+          <li class="list-inline-item">
+            <div class="profilebar">
+              <div class="dropdown">
+                <a
+                  class="dropdown-toggle"
+                  href=""
+                  role="button"
+                  id="profilelink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="{% if user.userprofile.image %}{{user.userprofile.image.url}}{% else %}{% static 'img/profile.png' %}{% endif %}"
+                    class="profile-pic-icon"
+                    alt="profile"
+                  />
+                  <span class="live-icon dark-icon-color dark-theme-border"
+                    >{% if user.is_authenticated %}
+                    {{user.name|default_if_none:user.username}} {% endif %}
+                  </span>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right"
+                  aria-labelledby="profilelink"
+                >
+                  <a class="dropdown-item" href="{% url 'users:user-profile' %}"
+                    ><i class="ri-user-6-line"></i>My Profile</a
+                  >
+                  {% if user.is_superuser or user.is_staff %}<a
+                    class="dropdown-item"
+                    target="_blank"
+                    href="/admin/"
+                    ><i class="ri-admin-line"></i>Admin</a
+                  >{% endif %}
+                  <a class="dropdown-item setting-class" href=""
+                    ><i class="ri-settings-3-line"></i>Settings</a
+                  >
+                  <a class="dropdown-item" href="{% url 'users:logout' %}"
+                    ><i class="ri-shut-down-line"></i>Logout</a
+                  >
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- End col -->
+  </div>
+  <!-- End row -->
+</div>
+<!-- End Topbar -->

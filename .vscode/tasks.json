@@ -1,0 +1,44 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Django: Run Server",
+      "type": "shell",
+      "command": "./vme/bin/python3",
+      "windows": {
+        "command": "vme\\Scripts\\python.exe"
+      },
+      "args": [
+        "manage.py",
+        "runserver",
+        "0.0.0.0:6789"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "label": "Node Run",
+      "command": "C:/Users/Jango/Downloads/node/node.exe ./dummyy.js",
+      "windows": {
+        "command": "C:\\Users\\Jango\\Downloads\\node\\node.exe .\\dummyy.js"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+      
+    }
+  ]
+  
+}

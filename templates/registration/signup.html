@@ -1,0 +1,126 @@
+<!-- templates/registration/signup.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Register{% endblock %}
+{% block indexhtml %}
+
+<!-- Start loginbar -->
+    <div id="containerbar" class="containerbar authenticate-bg text-dark">
+        <!-- Start Container -->
+        <div class="container">
+            <div class="auth-box register-box ">
+                <!-- Start row -->
+                <div class="row no-gutters align-items-center justify-content-center">
+                    <!-- Start col -->
+                    <div class="col-md-6 col-lg-5 ">
+                        <!-- Start Auth Box -->
+                        <div class="auth-box-right ">
+                            <div class="card user-card-bg-color">
+                                <div class="card-body ">
+
+                                {% if user.is_authenticated %}
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3><span>Hi {{ user.username }}</h3>
+                                                <span style="font-size: x-large">You are already logged in</span>
+                                                <div class="row">
+                                                    <div class="col-md-12 mt-3 ">
+                                                        <span>
+                                                            <a role="button" class="btn btn-success" href="{% url 'erpapp:home' %}">Home</a>
+                                                        </span>
+                                                        <span>
+                                                            <a role="button" class="btn btn-danger" href="{% url 'users:logout' %}">Log out</a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                {% else %}
+                                    <form action="" method="post">
+                                    {% csrf_token %}
+
+                                        <h4 class="text-primary my-4">Register !</h4>
+                                        <div class="form-group">
+                                            {{form.username}}
+                                        </div>
+
+                                        {% if form.username.errors %}
+                                        <div class="col-sm-12 mt-n3 mb-1">
+                                            {% for ee in form.username.errors %}
+                                                    <span class="error-text text-center">
+                                                        {{ ee }}
+                                                    </span>
+                                            {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        <div class="form-group">
+                                            {{form.email}}
+                                        </div>
+
+                                        {% if form.email.errors %}
+                                        <div class="col-sm-12 mt-n3 mb-1">
+                                            {% for ee in form.email.errors %}
+                                                    <span class="error-text text-center">
+                                                        {{ ee }}
+                                                    </span>
+                                            {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        <div class="form-group">
+                                            {{ form.password1 }}
+                                        </div>
+                                        {% if form.password1.errors %}
+                                        <div class="col-sm-12 mt-n3 mb-1">
+                                            {% for ee in form.password1.errors %}
+                                                    <span class="error-text text-center">
+                                                        {{ ee }}
+                                                    </span>
+                                            {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        <div class="form-group">
+                                            {{form.password2}}
+                                        </div>
+                                        {% if form.password2.errors %}
+                                         <div class="col-sm-12 mt-n3 mb-1">
+                                            {% for ee in form.password2.errors %}
+                                                    <span class="error-text text-center">
+                                                        {{ ee }}
+                                                    </span>
+                                            {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        <div class="form-row mb-3">
+                                        <!--
+                                            <div class="col-sm-12">
+                                                <div class="custom-control custom-checkbox text-left">
+                                                    <input type="checkbox" class="custom-control-input" id="terms">
+                                                    <label class="custom-control-label font-14" for="terms">I Agree to Terms & Conditions of Celec</label>
+                                                </div>                                
+                                            </div>
+                                        -->
+                                        </div>                          
+                                      <button type="submit" class="btn btn-success btn-lg btn-block font-18">Register</button>
+                                    </form>
+                                    <p class="mb-0 mt-3">Already have an account? <a href="{% url 'users:login' %}{% include 'getprams.html' with qr=True %}">Log in</a></p>
+                                {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Auth Box -->
+                    </div>
+                    <!-- End col -->
+                </div>
+                <!-- End row -->
+            </div>
+            
+        </div>
+        <!-- End Container -->
+    </div>
+    <!-- End loginbar -->
+{% endblock indexhtml %}

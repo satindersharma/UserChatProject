@@ -1,0 +1,62 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- templates/home.html -->
+
+
+
+{% if user.is_authenticated %}
+
+
+
+<div class="container ">
+    <div class="row my-3">
+        <div class="col-md-auto">
+            <img src="{{ user.user_avatar.url }}" class="img-fluid"
+                style="width: 64px;height: 64px;border-radius: 50%;border: 1px solid antiquewhite" alt="profile">
+        </div>
+        <div class="col-md-auto">
+            {% if user.has_usable_password %}
+            <h3>Hi <span style="color: aqua">{{ user.first_name }}{% if user.last_name %}
+                    {{ user.last_name }}{% endif %}</span></h3>
+            {% else %}
+            <h3>Hi <span style="color: lightyellow">{{ user.first_name }}{% if user.last_name %}
+                    {{ user.last_name }}{% endif %}</span><span style="font-size: xx-small;color: aliceblue"> Anonymous
+                    User</span></h3>
+            {% endif %}
+        </div>
+    </div>
+    <a role="button" class="btn btn-outline-warning" href="{% url 'posts_detail' %}">My Post</a>
+    <a role="button" class="btn btn-outline-warning" href="{% url 'others-posts' %}">Others Post</a>
+    <a role="button" class="btn btn-danger" href="{% url 'users:logout' %}">Log out</a>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-auto mt-5">
+            <h1>
+                <span style="color: mintcream">Welcome to Celec</span>
+            </h1>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container">
+    <h1><span style="color: lightsalmon">Celec Login</span></h1>
+</div>
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-auto">
+            <a role="button" class="btn btn-primary" href="{% url 'users:login' %}">Log In</a>
+            <a role="button" class="btn btn-info" href="{% url 'users:signup' %}">Sign Up</a>
+        </div>
+    </div>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

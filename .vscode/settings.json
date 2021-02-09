@@ -1,0 +1,23 @@
+// where vme is the virtualenv folder name
+
+{
+  "python.defaultInterpreterPath": "vme\\Scripts\\python.exe",
+  "python.venvPath": "/vme",
+  "python.linting.enabled":true,
+  "editor.mouseWheelScrollSensitivity": 3,
+  "editor.fastScrollSensitivity": 10,
+  "editor.largeFileOptimizations": false,
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "liveSassCompile.settings.excludeList": [
+
+    "**/node_modules/**",
+      "**/node_modules/**",
+      "static/assets/**",
+      "static_cdn/assets/**",
+    ],
+    "sqltools.connections": [],
+    "python.pythonPath": "/home/satyam/Documents/git/UserChatProject/vme/bin/python3.8",
+
+}

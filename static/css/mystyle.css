@@ -1,0 +1,661 @@
+:root {
+  --clr-1: #eeeeee;
+  --clr-2: #686d76;
+  --clr-3: #373a40;
+  --clr-4: #19d3da;
+  --clr-5: #e7e7de;
+  --clr-6: #008891;
+  --clr-7: #00587a;
+  --clr-8: #0f3057;
+  --clr-9: #ecfeff;
+  --clr-10: #00b7c2;
+  --clr-11: #128494;
+  --clr-12: #4ef037;
+  --bgclr-1: #eeeeee;
+  --bgclr-2: #686d76;
+  --bgclr-3: #373a40;
+  --bgclr-4: #19d3da;
+  --bgclr-5: #e7e7de;
+  --bgclr-6: #008891;
+  --bgclr-7: #00587a;
+  --bgclr-8: #0f3057;
+  --bgclr-9: #ecfeff;
+  --bgclr-10: #00b7c2;
+  --bgclr-11: #128494;
+  --bgclr-12: #4ef037;
+  --dark-clr-1:#232323;
+  --dark-clr-2:#0e0e0e;
+  --dark-clr-3:#292929;
+  --dark-clr-4:#1d1d1d;
+  --dark-clr-5:#2f2f2f;
+  --error-page-color: #57b894;
+  --form-control-color: #000;
+  --form-control-bg-color: #f9f9f9;
+  --form-control-bg-color-1: rgba(255, 255, 255, 0.1);
+  --form-control-bg-color-2: rgba(255, 255, 255, 0.05);
+  --form-control-bg-color-3: rgba(255, 255, 255, 0.8);
+  --form-control-bg-color-4: rgba(255, 255, 255, 0.5);
+  --form-control-f-color: #000;
+  --form-control-f-bg-color: #fff;
+  --dark-color-theme-bg-color: #8a8a8a;
+  --dark-theme-leftbar-bg-color: #191919;
+  --dark-theme-outer-bg-color:#d8d8d8;
+  --dark-theme-top-bg-color:#fbfbfb;
+  --dark-theme-header-bg-color: #0b132b;
+  --dark-theme-bg-color: #f1f1f1;
+  --dark-theme-border-color: #616161;
+  --dark-theme-color: #fff1e6;
+  --topbar-border: 1px solid rgb(255, 255, 255);
+  --dark-search-button-color: rgba(255, 255, 255, 0.904);
+  --dark-input-placeholder-color: rgb(103 103 103);
+  --dark-color-color: #faf9f9;
+  --page-title-color: rgb(0, 0, 0);
+  --dark-text-color: rgb(0, 0, 0);
+  --dark-icon-color: rgb(0, 0, 0);
+  --chart-bgc: #fff;
+  --dark-theme-form-bg-color: #f6e1e1;
+  --table-thead-color: #fff1e6;
+  --table-thead-bg-color:#404040;
+  --table-tr-even-color: #000000;
+  --table-tr-even-bg-color: #e4e4e4;
+  --table-tr-odd-color: #000;
+  --table-tr-odd-bg-color: #d4d4d4;
+  --table-td-color: #000000;
+  --table-tr-even-td-color: #000000;
+  --outer-c: #e9e9e9;
+  --outer-bgc: #9c9c9c;
+  --header-c: #fff1e6;
+  --header-bgc: #c6c6c6;
+  --text-c: #fff;
+  --text-bgc: #f6e1e1;
+}
+
+/* 
+///////////////////////////////////////////////////
+these solve the problem of date picker
+///////////////////////////////////////////////////
+
+*/
+
+.datepicker {
+  z-index: 1999;
+}
+
+
+
+.custom-control-label,
+label.radio-label,
+.rememberme{
+  cursor: pointer;
+}
+
+
+label.radio-label::before,
+label.radio-label::after {
+  margin-top: 7px;
+}
+
+/* #label-for-transfer::before,#label-for-transfer::before,{
+
+} */
+
+
+/* 
+///////////////////////////////////////////////////
+                  pagination
+///////////////////////////////////////////////////
+
+*/
+
+ul.pagination {
+  justify-content: flex-end;
+}
+
+/* 
+///////////////////////////////////////////////////
+                  Dark Theme setup
+///////////////////////////////////////////////////
+
+*/
+
+.dark-color-theme {
+  color: var(--dark-theme-color);
+  background-color: var(--dark-color-theme-bg-color);
+}
+.dark-bg-color-theme {
+  color: var(--dark-color-color);
+  background-color: var(--dark-theme-bg-color);
+}
+
+.dark-bgc-1 {
+  color: var(--clr-1);
+  background-color: var(--bgclr-2);
+}
+.dark-bg-color-theme-2 {
+  color: var(--table-tr-even-td-color);
+  background-color: var(--table-tr-even-bg-color);
+}
+.dark-outer-color-theme {
+  color: var(--dark-color-color);
+  background-color: var(--dark-theme-outer-bg-color);
+}
+
+.dark-top-color-theme {
+  color: var(--dark-color-color);
+  background-color: var(--dark-theme-top-bg-color);
+}
+
+.dark-form-color-theme {
+  background-color: var(--dark-theme-form-bg-color);
+}
+
+.dark-color-gradient {
+  color: rgb(238, 238, 238);
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(83, 83, 83, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(83, 83, 83, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(83, 83, 83, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#535353",GradientType=1);
+}
+
+.table-thead-color {
+  color: var(--table-thead-color);
+  background-color: var(--table-thead-bg-color);
+}
+
+.dark-theme-text {
+  color: var(--dark-text-color);
+}
+.dark-theme-icon {
+  color: var(--dark-icon-color);
+}
+
+.dark-theme-border,
+a#infobar-settings-open,
+a#notoficationlink,
+a#languagelink,
+a#profilelink {
+  border-color: var(--dark-theme-border-color);
+}
+
+input.form-control.dark-theme-border::placeholder {
+  color: var(--dark-input-placeholder-color) !important;
+  background-color: var(--dark-theme-top-bg-color) !important;
+}
+
+input.form-control.dark-theme-border::-webkit-search-cancel-button {
+  color: var(--dark-search-button-color) !important;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  color: var(--dark-search-button-color);
+  background-color: var(--dark-search-button-color);
+}
+
+.search-border-color,
+.search-border-color::placeholder,
+input.form-control.dark-theme-border::placeholder {
+  color: var(--dark-input-placeholder-color) !important;
+  background-color: unset !important;
+}
+.topbar .togglebar .menubar .menu-hamburger {
+  border: var(--dark-search-button-color);
+}
+input.form-control.dark-theme-border,
+button#button-addon2 {
+  border-color: var(--dark-theme-border-color) !important;
+}
+
+.dark-bg-border {
+  border-radius: 12px;
+}
+
+.page-title {
+  color: var(--page-title-color) !important;
+}
+
+
+/* 
+///////////////////////////////////////////////////
+                  Permissin select
+///////////////////////////////////////////////////
+
+*/
+
+select#id_content_type,
+select#id_aleady {
+  height: 20.8em;
+}
+
+ul.selector-chooser {
+  display: grid;
+  align-items: center;
+  align-self: center;
+  list-style-type: none;
+}
+
+/* 
+//////////////////////////////////////////////////////////////////////
+                  overwriting User card color
+/////////////////////////////////////////////////////////////////////
+
+*/
+.user-card-bg-color {
+  color: var(--form-control-color);
+  background-color: var(--form-control-bg-color);
+}
+
+/* 
+//////////////////////////////////////////////////////////////////////
+                  overwriting Dashboard card color
+/////////////////////////////////////////////////////////////////////
+
+*/
+.card-bg-color {
+  color: var(--form-control-color);
+  background-color: var(--form-control-bg-color);
+}
+.card-bg-color-light {
+  color: var(--form-control-color);
+  background-color: var(--form-control-bg-color-1);
+}
+.card-bg-color-lighter {
+  color: var(--form-control-color);
+  background-color: var(--form-control-bg-color-2);
+}
+.chat-active {
+  background-color: var(--form-control-bg-color-3);
+  border-radius: 0.25rem;
+}
+.chat-list .chat-user-list li:hover {
+  background-color: var(--form-control-bg-color-4);
+  border-radius: 0.25rem;
+}
+
+/* 
+//////////////////////////////////////////////////////////////////////
+                  Error page text color like 404 500
+/////////////////////////////////////////////////////////////////////
+
+*/
+
+.error-page-color {
+  color: var(--error-page-color);
+}
+
+/* 
+//////////////////////////////////////////////////////////////////////
+                  Icon Size
+/////////////////////////////////////////////////////////////////////
+
+*/
+
+.icon-size {
+  font-size: 1.4rem;
+  padding: 0 5px 0 5px;
+}
+
+/* 
+//////////////////////////////////////////////////////////////////////
+                  Calling
+/////////////////////////////////////////////////////////////////////
+
+*/
+.calling-head,
+.messaging-head {
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translateX(-50%);
+}
+
+/* 
+//////////////////////////////////////////////////////////////////////
+                  overwriting form-control and select2 container
+/////////////////////////////////////////////////////////////////////
+
+*/
+.form-control {
+  color: var(--form-control-color);
+  background-color: var(--form-control-bg-color);
+}
+
+.form-control:focus {
+  color: var(--form-control-f-color);
+  background-color: var(--form-control-f-bg-color);
+}
+
+/* 
+//////////////////////////////////////////////////////////////////////
+                Call History Error Color and Background Color
+/////////////////////////////////////////////////////////////////////
+
+*/
+.call-histrory-error {
+  background-color: red;
+  border-color: red;
+}
+
+/* leftbar color */
+.leftbar {
+  background-color: var(--dark-theme-leftbar-bg-color);
+}
+
+.dark-theme-header-bg-color {
+  background-color: var(--dark-theme-header-bg-color);
+}
+/* 
+//////////////////////////////////////////////////////////////////////
+                  Color and Background Color
+/////////////////////////////////////////////////////////////////////
+
+*/
+
+.header-c {
+  color: var(--header-c);
+}
+.header-bgc {
+  background-color: var(--header-bgc);
+}
+.outer-bgc {
+  background-color: var(--outer-bgc);
+}
+.outer-c {
+  color: var(--outer-c);
+}
+
+.text-c {
+  color: var(--text-c);
+}
+
+.text-bgc {
+  background-color: var(--text-bgc);
+}
+.clr-1 {
+  color: var(--clr-1);
+}
+.clr-2 {
+  color: var(--clr-2);
+}
+.clr-3 {
+  color: var(--clr-3);
+}
+.clr-4 {
+  color: var(--clr-4);
+}
+.clr-5 {
+  color: var(--clr-5);
+}
+.clr-6 {
+  color: var(--clr-6);
+}
+.clr-7 {
+  color: var(--clr-7);
+}
+.clr-8 {
+  color: var(--clr-8);
+}
+.clr-9 {
+  color: var(--clr-9);
+}
+.clr-10 {
+  color: var(--clr-10);
+}
+.clr-11 {
+  color: var(--clr-11);
+}
+.clr-12 {
+  color: var(--clr-12);
+}
+.bgclr-1 {
+  background-color: var(--bgclr-1);
+}
+.bgclr-2 {
+  background-color: var(--bgclr-2);
+}
+.bgclr-3 {
+  background-color: var(--bgclr-3);
+}
+.bgclr-4 {
+  background-color: var(--bgclr-4);
+}
+.bgclr-5 {
+  background-color: var(--bgclr-5);
+}
+.bgclr-6 {
+  background-color: var(--bgclr-6);
+}
+.bgclr-7 {
+  background-color: var(--bgclr-7);
+}
+.bgclr-8 {
+  background-color: var(--bgclr-8);
+}
+.bgclr-9 {
+  background-color: var(--bgclr-9);
+}
+.bgclr-10 {
+  background-color: var(--bgclr-10);
+}
+.bgclr-11 {
+  background-color: var(--bgclr-11);
+}
+.bgclr-12 {
+  background-color: var(--bgclr-12);
+}
+
+
+.dark-clr-1{
+  color: var(--dark-clr-1);
+}
+.dark-clr-2{
+  color: var(--dark-clr-2);
+}
+.dark-clr-3{
+  color: var(--dark-clr-3);
+}
+.dark-clr-4{
+  color: var(--dark-clr-4);
+}
+.dark-clr-5{
+  color: var(--dark-clr-5);
+}
+
+
+.notify {
+  display: flex;
+  top: -8px !important;
+  width: 20px !important;
+  height: 20px !important;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+  font-size: small;
+  padding: 0px 4px 2px 4px;
+  background-color: var(--dark-theme-outer-bg-color) !important;
+  color: var(--page-title-color);
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--page-title-color) !important;
+}
+.breadcrumbbar .breadcrumb .breadcrumb-item a {
+  color: var(--page-title-color) !important;
+}
+
+.bgc-none {
+  background-color: unset;
+}
+
+.small-size-input {
+  height: calc(1em + 0.5rem + 2px);
+  padding: 0.1rem 0.2rem;
+}
+
+input.small-size-input::placeholder {
+  color: #444;
+}
+.multi_quantity {
+  display: none;
+}
+#id_lead_remarks {
+  height: calc(1.5em + 0.75rem + 2px);
+}
+/* .small-size-input::after {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  content: "&#x1F50D";
+} */
+
+.dashboard-contentbar {
+  margin-top: 80px;
+}
+@media (max-width: 991.98px) {
+  .dashboard-contentbar {
+    margin-top: 100px;
+  }
+}
+@media (max-width: 575.98px) {
+  .dashboard-contentbar {
+    margin-top: 120px;
+  }
+}
+
+#address-popup {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 1199.98px) {
+  #address-popup {
+    display: grid;
+    gap: 5px;
+  }
+}
+
+.new-camera-icon {
+  font-size: 3rem;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: fill;
+  object-position: center;
+}
+
+.profile-pic-icon {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50%;
+  object-fit: fill;
+  object-position: center;
+}
+.line-divider {
+  padding: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.line-divider-darker {
+  padding: 15px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+.list-unstyled,
+.navigationbar {
+  scrollbar-width: thin;
+}
+
+input[name="bom-item-*-DELETE"] {
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 0.15s, 0.15s, 0.15s;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+  transition-delay: 0s, 0s, 0s;
+}
+
+table.dataTable {
+  animation-name: table-scale-up-center;
+  animation-duration: 400ms;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
+@keyframes table-scale-up-center {
+  0% {
+    -webkit-transform: scale(0.99);
+    transform: scale(0.99);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.comment-reply {
+  display: none;
+}
+
+.chat-profile-img {
+  max-width: 50px;
+  max-height: 50px;
+}
+.chat-profile-img-sm {
+  max-width: 35px;
+  max-height: 35px;
+}
+
+.chat-list .chat-search {
+  max-height: 10vh;
+}
+
+.comment-user-img {
+  max-width: 24px;
+  max-height: 24px;
+  border-radius: 50%;
+  border: 0.1px solid antiquewhite;
+}
+
+.comment-user-img-sm {
+  max-width: 20px;
+  max-height: 20px;
+}
+.user-chat-border {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.currunt-user-border {
+  border-bottom-right-radius: 0;
+}
+.other-user-border {
+  border-top-left-radius: 0;
+}
+div.dataTables_scrollBody {
+  background: unset !important;
+}
+
+
+
+

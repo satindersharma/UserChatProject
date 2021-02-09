@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% block base_css %}
+{{block.super}}
+{% endblock base_css %}
+{% block indexhtml %}
+
+
+<!-- Start Infobar Setting Sidebar -->
+<div id="infobar-settings-sidebar" class="infobar-settings-sidebar card-bg-color">
+    <div class="infobar-settings-sidebar-head d-flex w-100 justify-content-between">
+        <h4>Settings</h4><a href="javascript:void(0)" id="infobar-settings-close" class="infobar-settings-close"><i
+                class="ri-close-line menu-hamburger-close"></i></a>
+    </div>
+    <div class="infobar-settings-sidebar-body">
+        <div class="custom-mode-setting">
+            <div class="row align-items-center pb-3">
+                <div class="col-12">
+                    <h6 class="mb-1 text-center">Choose a Color Theme</h6>
+                </div>
+                <div class="col-12 pb-1">
+                    <div id="theme-options-wrapper">
+                        <div data-mode="light" id="light-mode" class="theme-dot"></div>
+                        <div data-mode="blue" id="blue-mode" class="theme-dot"></div>
+                        <div data-mode="green" id="green-mode" class="theme-dot"></div>
+                        <div data-mode="purple" id="purple-mode" class="theme-dot"></div>
+                        <div data-mode="white" id="white-mode" class="theme-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="infobar-settings-sidebar-overlay"></div>
+<!-- End Infobar Setting Sidebar -->
+<!-- Start Containerbar -->
+<div id="containerbar px-0">
+ 
+    <!-- Start Rightbar -->
+    <div class="rightbar">
+    {% include 'base/rightbar.html' %}
+
+    {% block breadcrumbbar %}
+            <!-- Start rightbar Breadcrumbbar -->
+            <div class="breadcrumbbar bg-transparent">
+            
+            </div>
+            <!-- End rightbar Breadcrumbbar -->
+    {% endblock breadcrumbbar %}
+
+
+    {% block content %}
+
+
+
+    {% endblock content %}
+
+
+    </div>
+    <!-- End Rightbar -->
+
+</div>
+<!-- End Containerbar -->
+
+<script type="text/javascript">
+    let static = "{% static 'colorscheme/css' %}"
+</script>
+{% endblock indexhtml %}

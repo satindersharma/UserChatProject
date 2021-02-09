@@ -1,0 +1,99 @@
+.complete-switch {
+    margin: 0;
+    cursor: pointer;
+  }
+  .complete-switch > span {
+    line-height: 20px;
+    margin: 0 0 0 4px;
+    vertical-align: top;
+  }
+  .complete-switch input {
+    display: none;
+  }
+  .complete-switch input + div {
+    width: 40px;
+    height: 20px;
+    border: 1px solid #d1d7e3;
+    background: #d1d7e3;
+    border-radius: 10px;
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    transition: all 0.4s ease;
+  }
+  .complete-switch input + div:before {
+    content: "";
+    float: left;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    pointer-events: none;
+    margin-top: 2px;
+    margin-left: 2px;
+    border-radius: inherit;
+    transition: all 0.4s ease 0s;
+  }
+  .complete-switch input + div:after {
+    content: "";
+    left: -1px;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid transparent;
+    border-top-color: #5d9bfb;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+  }
+  .complete-switch input:checked + div {
+    background: #9ec4ff;
+    border: 1px solid #5d9bfb;
+  }
+  .complete-switch input:checked + div:before {
+    transform: translate(20px, 0);
+  }
+  .complete-switch.load input + div {
+    width: 20px;
+    margin: 0 10px;
+  }
+  .complete-switch.load input + div:after {
+    opacity: 1;
+    -webkit-animation: rotate 0.9s infinite linear;
+            animation: rotate 0.9s infinite linear;
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+  }
+  .complete-switch:hover input:disabled + div {
+    border-color: #d1d7e3;
+  }
+  .complete-switch:hover input:checked + div {
+    background: #5d9bfb;
+  }
+  
+  @-webkit-keyframes rotate {
+    0%, 15% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(290deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes rotate {
+    0%, 15% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(290deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

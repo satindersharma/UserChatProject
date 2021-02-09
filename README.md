@@ -17,6 +17,9 @@ on linux
 
 
 ## now rurn following commands on activated virtualenv
+
+## Make directories if not exists
+`mkdir media static templates`
 #### install required packages
 `pip install -r requirements.txt`
 
@@ -28,3 +31,6 @@ on linux
 `python manage.py migrate`
 
 ### move 'user-profile.png' to media directory
+`mv user-profile.png media`
+### runserver on port 8000
+`python manage.py runserver 0.0.0.0:8000`
